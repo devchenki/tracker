@@ -1,4 +1,49 @@
 {
-  "name": "AuthApp",
-  "displayName": "Auth App"
+  "expo": {
+    "name": "TrackerSteroid",
+    "slug": "trackersteroid",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "scheme": "trackersteroid",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ECEFF4"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.trackersteroid.app",
+      "infoPlist": {
+        "NSFaceIDUsageDescription": "Allow TrackerSteroid to use Face ID for secure authentication."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ECEFF4"
+      },
+      "package": "com.trackersteroid.app",
+      "permissions": [
+        "USE_BIOMETRIC",
+        "USE_FINGERPRINT"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-local-authentication",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#ECEFF4"
+        }
+      ]
+    ]
+  }
 }

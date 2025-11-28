@@ -1,62 +1,54 @@
 import React from 'react';
-import { Button as PaperButton, ButtonProps as PaperButtonProps } from 'react-native-paper';
-import { StyleSheet, ViewStyle } from 'react-native';
-import { AppTheme } from '../../theme/colors';
+import { Button as GluestackButton, ButtonText } from '@gluestack-ui/themed';
+import { StyleSheet, ViewStyle, TextStyle } from 'react-native';
+import { NordTheme } from '../../theme/nord';
 
-interface ButtonProps extends Omit<PaperButtonProps, 'mode'> {
+interface ButtonProps {
   variant?: 'primary' | 'secondary' | 'outline' | 'text';
   fullWidth?: boolean;
+  children: React.ReactNode;
+  onPress?: () => void;
+  disabled?: boolean;
+  loading?: boolean;
+  style?: ViewStyle;
+  textStyle?: TextStyle;
 }
 
 export const Button: React.FC<ButtonProps> = ({ 
   variant = 'primary', 
   fullWidth = false,
+  children,
+  onPress,
+  disabled = false,
+  loading = false,
   style,
-  buttonColor,
-  textColor,
+  textStyle,
   ...props 
 }) => {
-  const getButtonColor = () => {
-    if (buttonColor) return buttonColor;
-    
-    switch (variant) {
-      case 'primary':
-        return AppTheme.colors.primary;
-      case 'secondary':
-        return AppTheme.colors.secondary;
-      case 'outline':
-      case 'text':
-        return 'transparent';
-      default:
-        return AppTheme.colors.primary;
-    }
+  const getVariant = () => {
+    if (variant === 'outline') return 'outline';
+    if (variant === 'text') return 'link';
+    return 'solid';
   };
 
-  const getTextColor = () => {
-    if (textColor) return textColor;
-    
-    switch (variant) {
-      case 'primary':
-      case 'secondary':
-        return '#FFFFFF';
-      case 'outline':
-      case 'text':
-        return AppTheme.colors.primary;
-      default:
-        return '#FFFFFF';
-    }
+  const getAction = () => {
+    if (variant === 'secondary') return 'secondary';
+    return 'primary';
   };
-
-  const mode = variant === 'outline' ? 'outlined' : variant === 'text' ? 'text' : 'contained';
 
   return (
-    <PaperButton
-      mode={mode}
-      buttonColor={getButtonColor()}
-      textColor={getTextColor()}
+    <GluestackButton
+      variant={getVariant()}
+      action={getAction()}
+      onPress={onPress}
+      isDisabled={disabled || loading}
       style={[fullWidth && styles.fullWidth, style]}
       {...props}
-    />
+    >
+      <ButtonText style={textStyle}>
+        {loading ? 'Loading...' : children}
+      </ButtonText>
+    </GluestackButton>
   );
 };
 

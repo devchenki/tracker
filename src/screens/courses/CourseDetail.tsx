@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
-import { Text } from 'react-native-paper';
+import { Text } from '../../components/ui';
 import { Card, CardContent, CardTitle, Button } from '../../components/ui';
-import { AppTheme } from '../../theme/colors';
+import { NordTheme } from '../../theme/nord';
 
 const CourseDetail = () => {
   return (
@@ -60,29 +60,29 @@ const CourseDetail = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: AppTheme.colors.background,
+    backgroundColor: NordTheme.colors.background,
   },
   header: {
     padding: 20,
   },
   title: {
     fontWeight: 'bold',
-    color: AppTheme.colors.text,
+    color: NordTheme.colors.text,
     marginBottom: 8,
   },
   subtitle: {
-    color: AppTheme.colors.textSecondary,
+    color: NordTheme.colors.textSecondary,
   },
   card: {
     marginHorizontal: 20,
     marginBottom: 16,
   },
   text: {
-    color: AppTheme.colors.text,
+    color: NordTheme.colors.text,
     lineHeight: 24,
   },
   bulletPoint: {
-    color: AppTheme.colors.text,
+    color: NordTheme.colors.text,
     marginBottom: 8,
     lineHeight: 24,
   },

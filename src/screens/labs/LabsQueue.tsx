@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
-import { Text } from 'react-native-paper';
+import { Text } from '../../components/ui';
 import { useNavigation } from '@react-navigation/native';
 import { Card, CardContent, CardTitle, Button } from '../../components/ui';
-import { AppTheme } from '../../theme/colors';
+import { NordTheme } from '../../theme/nord';
 
 const MOCK_LABS = [
   { id: '1', title: 'Build a Todo App', difficulty: 'Beginner', duration: '2 hours', status: 'available' },
@@ -51,18 +51,18 @@ const LabsQueue = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: AppTheme.colors.background,
+    backgroundColor: NordTheme.colors.background,
   },
   header: {
     padding: 20,
   },
   title: {
     fontWeight: 'bold',
-    color: AppTheme.colors.text,
+    color: NordTheme.colors.text,
     marginBottom: 4,
   },
   subtitle: {
-    color: AppTheme.colors.textSecondary,
+    color: NordTheme.colors.textSecondary,
   },
   list: {
     flex: 1,
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   duration: {
-    color: AppTheme.colors.textSecondary,
+    color: NordTheme.colors.textSecondary,
     marginBottom: 12,
   },
   button: {

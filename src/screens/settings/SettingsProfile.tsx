@@ -3,7 +3,7 @@ import { View, StyleSheet, ScrollView } from 'react-native';
 import { Text, Avatar } from 'react-native-paper';
 import { useAuth } from '../../contexts/AuthContext';
 import { Card, CardContent, Button } from '../../components/ui';
-import { AppTheme } from '../../theme/colors';
+import { NordTheme } from '../../theme/nord';
 
 const SettingsProfile = () => {
   const { user, signOut } = useAuth();
@@ -51,14 +51,14 @@ const SettingsProfile = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: AppTheme.colors.background,
+    backgroundColor: NordTheme.colors.background,
   },
   header: {
     padding: 20,
   },
   title: {
     fontWeight: 'bold',
-    color: AppTheme.colors.text,
+    color: NordTheme.colors.text,
   },
   card: {
     marginHorizontal: 20,
@@ -69,18 +69,18 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   avatar: {
-    backgroundColor: AppTheme.colors.primary,
+    backgroundColor: NordTheme.colors.primary,
   },
   infoContainer: {
     alignItems: 'center',
   },
   name: {
-    color: AppTheme.colors.text,
+    color: NordTheme.colors.text,
     fontWeight: 'bold',
     marginBottom: 4,
   },
   email: {
-    color: AppTheme.colors.textSecondary,
+    color: NordTheme.colors.textSecondary,
   },
   buttonContainer: {
     padding: 20,

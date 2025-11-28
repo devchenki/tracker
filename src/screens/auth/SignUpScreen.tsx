@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
-import { Text } from 'react-native-paper';
+import { Text } from '../../components/ui';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { useAuth } from '../../contexts/AuthContext';
 import { RootStackParamList } from '../../types';
 import { Button, Input, Snackbar } from '../../components/ui';
-import { AppTheme } from '../../theme/colors';
+import { NordTheme } from '../../theme/nord';
 
 type SignUpScreenNavigationProp = StackNavigationProp<RootStackParamList, 'SignUp'>;
 
@@ -244,7 +244,7 @@ const SignUpScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: AppTheme.colors.background,
+    backgroundColor: NordTheme.colors.background,
   },
   scrollContent: {
     flexGrow: 1,
@@ -256,17 +256,17 @@ const styles = StyleSheet.create({
   title: {
     marginBottom: 8,
     fontWeight: 'bold',
-    color: AppTheme.colors.text,
+    color: NordTheme.colors.text,
   },
   subtitle: {
     marginBottom: 32,
-    color: AppTheme.colors.textSecondary,
+    color: NordTheme.colors.textSecondary,
   },
   input: {
     marginBottom: 8,
   },
   errorText: {
-    color: AppTheme.colors.error,
+    color: NordTheme.colors.error,
     fontSize: 12,
     marginBottom: 8,
     marginLeft: 12,

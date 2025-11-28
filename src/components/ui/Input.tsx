@@ -1,39 +1,84 @@
 import React from 'react';
-import { TextInput, TextInputProps } from 'react-native-paper';
-import { StyleSheet } from 'react-native';
-import { AppTheme } from '../../theme/colors';
+import { Input as GluestackInput, InputField, InputSlot } from '@gluestack-ui/themed';
+import { StyleSheet, ViewStyle, TouchableOpacity, Text as RNText } from 'react-native';
+import { NordTheme } from '../../theme/nord';
 
-interface InputProps extends Omit<TextInputProps, 'theme'> {
+interface InputProps {
+  label?: string;
+  value: string;
+  onChangeText: (text: string) => void;
+  onBlur?: () => void;
+  placeholder?: string;
+  secureTextEntry?: boolean;
   error?: boolean;
-  errorMessage?: string;
+  disabled?: boolean;
+  keyboardType?: 'default' | 'email-address' | 'numeric' | 'phone-pad';
+  autoCapitalize?: 'none' | 'sentences' | 'words' | 'characters';
+  style?: ViewStyle;
+  right?: React.ReactNode;
 }
 
 const InputComponent: React.FC<InputProps> = ({ 
-  error, 
-  errorMessage,
+  label,
+  value,
+  onChangeText,
+  onBlur,
+  placeholder,
+  secureTextEntry = false,
+  error = false,
+  disabled = false,
+  keyboardType = 'default',
+  autoCapitalize = 'none',
   style,
+  right,
   ...props 
 }) => {
   return (
-    <TextInput
-      mode="outlined"
-      outlineColor={error ? AppTheme.colors.error : AppTheme.colors.border}
-      activeOutlineColor={error ? AppTheme.colors.error : AppTheme.colors.primary}
-      textColor={AppTheme.colors.text}
-      error={error}
+    <GluestackInput
+      isDisabled={disabled}
+      isInvalid={error}
       style={[styles.input, style]}
-      {...props}
-    />
+    >
+      <InputField
+        value={value}
+        onChangeText={onChangeText}
+        onBlur={onBlur}
+        placeholder={placeholder || label}
+        secureTextEntry={secureTextEntry}
+        keyboardType={keyboardType}
+        autoCapitalize={autoCapitalize}
+        {...props}
+      />
+      {right && <InputSlot pr="$3">{right}</InputSlot>}
+    </GluestackInput>
   );
 };
 
+const InputIconComponent = ({ icon, onPress }: { icon: string; onPress?: () => void }) => (
+  <TouchableOpacity onPress={onPress} style={styles.iconButton}>
+    <RNText style={styles.iconText}>
+      {icon === 'eye' ? '👁' : icon === 'eye-off' ? '👁️' : '•'}
+    </RNText>
+  </TouchableOpacity>
+);
+
 export const Input = Object.assign(InputComponent, {
-  Icon: TextInput.Icon,
-  Affix: TextInput.Affix,
+  Icon: InputIconComponent,
+  Affix: InputSlot,
 });
 
 const styles = StyleSheet.create({
   input: {
-    backgroundColor: AppTheme.colors.surface,
+    backgroundColor: NordTheme.colors.surface,
+    borderColor: NordTheme.colors.border,
+  },
+  iconButton: {
+    padding: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  iconText: {
+    fontSize: 20,
+    color: NordTheme.colors.textSecondary,
   },
 });

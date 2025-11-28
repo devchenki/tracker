@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
 import { Text, ProgressBar } from 'react-native-paper';
 import { Card, CardContent, CardTitle, Button } from '../../components/ui';
-import { AppTheme } from '../../theme/colors';
+import { NordTheme } from '../../theme/nord';
 import { ProgressService } from '../../services/ProgressService';
 
 const DashboardProgress = () => {
@@ -34,7 +34,7 @@ const DashboardProgress = () => {
             </View>
             <ProgressBar
               progress={course.progress / 100}
-              color={AppTheme.colors.primary}
+              color={NordTheme.colors.primary}
               style={styles.progressBar}
             />
             <Button
@@ -54,18 +54,18 @@ const DashboardProgress = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: AppTheme.colors.background,
+    backgroundColor: NordTheme.colors.background,
   },
   header: {
     padding: 20,
   },
   title: {
     fontWeight: 'bold',
-    color: AppTheme.colors.text,
+    color: NordTheme.colors.text,
     marginBottom: 4,
   },
   subtitle: {
-    color: AppTheme.colors.textSecondary,
+    color: NordTheme.colors.textSecondary,
   },
   card: {
     marginHorizontal: 20,
@@ -78,10 +78,10 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   progressText: {
-    color: AppTheme.colors.textSecondary,
+    color: NordTheme.colors.textSecondary,
   },
   progressPercent: {
-    color: AppTheme.colors.primary,
+    color: NordTheme.colors.primary,
     fontWeight: 'bold',
   },
   progressBar: {

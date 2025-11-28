@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Text, Searchbar } from 'react-native-paper';
-import { AppTheme } from '../../theme/colors';
+import { NordTheme } from '../../theme/nord';
 
 const KnowledgeSearch = () => {
   const [searchQuery, setSearchQuery] = React.useState('');
@@ -31,18 +31,18 @@ const KnowledgeSearch = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: AppTheme.colors.background,
+    backgroundColor: NordTheme.colors.background,
   },
   header: {
     padding: 20,
   },
   title: {
     fontWeight: 'bold',
-    color: AppTheme.colors.text,
+    color: NordTheme.colors.text,
     marginBottom: 16,
   },
   searchBar: {
-    backgroundColor: AppTheme.colors.surface,
+    backgroundColor: NordTheme.colors.surface,
   },
   content: {
     flex: 1,
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   emptyText: {
-    color: AppTheme.colors.textSecondary,
+    color: NordTheme.colors.textSecondary,
   },
 });
 

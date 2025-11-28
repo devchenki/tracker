@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
-import { Text } from 'react-native-paper';
+import { Text } from '../../components/ui';
 import { BarChart } from 'react-native-gifted-charts';
 import { useAuth } from '../../contexts/AuthContext';
 import { Card, CardContent, CardTitle } from '../../components/ui';
-import { AppTheme, NordColors } from '../../theme/colors';
+import { NordTheme, NordColors } from '../../theme/nord';
 import { ProgressService } from '../../services/ProgressService';
 
 const DashboardOverview = () => {
@@ -15,7 +15,7 @@ const DashboardOverview = () => {
   const barData = weeklyProgress.map(item => ({
     value: item.value,
     label: item.label,
-    frontColor: AppTheme.colors.primary,
+    frontColor: NordTheme.colors.primary,
   }));
 
   return (
@@ -61,7 +61,7 @@ const DashboardOverview = () => {
               data={barData}
               barWidth={28}
               barBorderRadius={4}
-              frontColor={AppTheme.colors.primary}
+              frontColor={NordTheme.colors.primary}
               yAxisThickness={0}
               xAxisThickness={0}
               hideRules
@@ -113,18 +113,18 @@ const DashboardOverview = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: AppTheme.colors.background,
+    backgroundColor: NordTheme.colors.background,
   },
   header: {
     padding: 20,
   },
   title: {
     fontWeight: 'bold',
-    color: AppTheme.colors.text,
+    color: NordTheme.colors.text,
     marginBottom: 4,
   },
   subtitle: {
-    color: AppTheme.colors.textSecondary,
+    color: NordTheme.colors.textSecondary,
   },
   statsContainer: {
     flexDirection: 'row',
@@ -136,12 +136,12 @@ const styles = StyleSheet.create({
     padding: 8,
   },
   statValue: {
-    color: AppTheme.colors.primary,
+    color: NordTheme.colors.primary,
     fontWeight: 'bold',
     textAlign: 'center',
   },
   statLabel: {
-    color: AppTheme.colors.textSecondary,
+    color: NordTheme.colors.textSecondary,
     textAlign: 'center',
     marginTop: 4,
   },
@@ -154,15 +154,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   yAxisText: {
-    color: AppTheme.colors.textSecondary,
+    color: NordTheme.colors.textSecondary,
     fontSize: 10,
   },
   xAxisText: {
-    color: AppTheme.colors.textSecondary,
+    color: NordTheme.colors.textSecondary,
     fontSize: 10,
   },
   chartSubtext: {
-    color: AppTheme.colors.textSecondary,
+    color: NordTheme.colors.textSecondary,
     textAlign: 'center',
     marginTop: 8,
   },
@@ -175,13 +175,13 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingVertical: 8,
     borderBottomWidth: 1,
-    borderBottomColor: AppTheme.colors.border,
+    borderBottomColor: NordTheme.colors.border,
   },
   summaryLabel: {
-    color: AppTheme.colors.text,
+    color: NordTheme.colors.text,
   },
   summaryValue: {
-    color: AppTheme.colors.primary,
+    color: NordTheme.colors.primary,
     fontWeight: 'bold',
   },
 });

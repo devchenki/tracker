@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
-import { Text } from 'react-native-paper';
+import { Text } from '../../components/ui';
 import { Card, CardContent, CardTitle } from '../../components/ui';
-import { AppTheme } from '../../theme/colors';
+import { NordTheme } from '../../theme/nord';
 
 const CourseModules = () => {
   const modules = [
@@ -31,7 +31,7 @@ const CourseModules = () => {
               variant="bodyMedium"
               style={[
                 styles.status,
-                { color: module.completed ? AppTheme.colors.success : AppTheme.colors.textSecondary },
+                { color: module.completed ? NordTheme.colors.success : NordTheme.colors.textSecondary },
               ]}
             >
               {module.completed ? '✓ Completed' : 'In Progress'}
@@ -46,14 +46,14 @@ const CourseModules = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: AppTheme.colors.background,
+    backgroundColor: NordTheme.colors.background,
   },
   header: {
     padding: 20,
   },
   title: {
     fontWeight: 'bold',
-    color: AppTheme.colors.text,
+    color: NordTheme.colors.text,
   },
   card: {
     marginHorizontal: 20,
