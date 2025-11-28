@@ -8,6 +8,9 @@ import SplashScreen from '../screens/auth/SplashScreen';
 import SignInScreen from '../screens/auth/SignInScreen';
 import SignUpScreen from '../screens/auth/SignUpScreen';
 import TabNavigator from './TabNavigator';
+import LogInjectionScreen from '../screens/actions/LogInjectionScreen';
+import LogTabletScreen from '../screens/actions/LogTabletScreen';
+import LogNoteScreen from '../screens/actions/LogNoteScreen';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -32,7 +35,24 @@ const RootNavigator = () => {
             <Stack.Screen name="SignUp" component={SignUpScreen} />
           </>
         ) : (
-          <Stack.Screen name="MainTabs" component={TabNavigator} />
+          <>
+            <Stack.Screen name="MainTabs" component={TabNavigator} />
+            <Stack.Screen 
+              name="LogInjectionScreen" 
+              component={LogInjectionScreen}
+              options={{ presentation: 'modal' }}
+            />
+            <Stack.Screen 
+              name="LogTabletScreen" 
+              component={LogTabletScreen}
+              options={{ presentation: 'modal' }}
+            />
+            <Stack.Screen 
+              name="LogNoteScreen" 
+              component={LogNoteScreen}
+              options={{ presentation: 'modal' }}
+            />
+          </>
         )}
       </Stack.Navigator>
     </NavigationContainer>

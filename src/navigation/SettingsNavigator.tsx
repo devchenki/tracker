@@ -6,6 +6,10 @@ import SettingsGeneral from '../screens/settings/SettingsGeneral';
 import SettingsSecurity from '../screens/settings/SettingsSecurity';
 import SettingsNotifications from '../screens/settings/SettingsNotifications';
 import SettingsProfile from '../screens/settings/SettingsProfile';
+import SettingsScreen from '../screens/settings/SettingsScreen';
+import ProfileScreen from '../screens/settings/ProfileScreen';
+import EditProfileScreen from '../screens/settings/EditProfileScreen';
+import AllAchievementsScreen from '../screens/settings/AllAchievementsScreen';
 
 const Stack = createStackNavigator<SettingsStackParamList>();
 
@@ -13,16 +17,29 @@ const SettingsNavigator = () => {
   return (
     <Stack.Navigator
       screenOptions={{
-        headerShown: true,
-        headerStyle: {
-          backgroundColor: '#81A1C1',
-        },
-        headerTintColor: '#FFFFFF',
-        headerTitleStyle: {
-          fontWeight: 'bold',
-        },
+        headerShown: false,
       }}
     >
+      <Stack.Screen
+        name="SettingsScreen"
+        component={SettingsScreen}
+        options={{ title: 'Settings' }}
+      />
+      <Stack.Screen
+        name="ProfileScreen"
+        component={ProfileScreen}
+        options={{ title: 'Profile' }}
+      />
+      <Stack.Screen
+        name="EditProfileScreen"
+        component={EditProfileScreen}
+        options={{ title: 'Edit Profile' }}
+      />
+      <Stack.Screen
+        name="AllAchievementsScreen"
+        component={AllAchievementsScreen}
+        options={{ title: 'Achievements' }}
+      />
       <Stack.Screen
         name="SettingsProfile"
         component={SettingsProfile}
