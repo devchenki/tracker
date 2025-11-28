@@ -1,50 +1,63 @@
 import React from 'react';
-import { Snackbar as PaperSnackbar, SnackbarProps as PaperSnackbarProps } from 'react-native-paper';
-import { StyleSheet } from 'react-native';
-import { AppTheme } from '../../theme/colors';
+import { Toast, ToastTitle, useToast, ToastDescription } from '@gluestack-ui/themed';
 
-interface SnackbarProps extends Omit<PaperSnackbarProps, 'children'> {
+interface SnackbarProps {
+  visible: boolean;
+  onDismiss: () => void;
   message: string;
   type?: 'default' | 'success' | 'error' | 'warning' | 'info';
+  duration?: number;
+  action?: {
+    label: string;
+    onPress: () => void;
+  };
 }
 
 export const Snackbar: React.FC<SnackbarProps> = ({ 
+  visible,
+  onDismiss,
   message,
   type = 'default',
-  style,
+  duration = 3000,
+  action,
   ...props 
 }) => {
-  const getBackgroundColor = () => {
-    switch (type) {
-      case 'success':
-        return AppTheme.colors.success;
-      case 'error':
-        return AppTheme.colors.error;
-      case 'warning':
-        return AppTheme.colors.warning;
-      case 'info':
-        return AppTheme.colors.info;
-      default:
-        return AppTheme.colors.primary;
+  const toast = useToast();
+  const toastIdRef = React.useRef<string | null>(null);
+
+  React.useEffect(() => {
+    if (visible && !toastIdRef.current) {
+      const id = toast.show({
+        placement: 'bottom',
+        duration,
+        render: ({ id }) => {
+          return (
+            <Toast nativeID={`toast-${id}`}>
+              <ToastDescription>{message}</ToastDescription>
+            </Toast>
+          );
+        },
+      });
+      
+      toastIdRef.current = id;
+
+      const timer = setTimeout(() => {
+        onDismiss();
+        if (toastIdRef.current) {
+          toast.close(toastIdRef.current);
+          toastIdRef.current = null;
+        }
+      }, duration);
+
+      return () => {
+        clearTimeout(timer);
+        if (toastIdRef.current) {
+          toast.close(toastIdRef.current);
+          toastIdRef.current = null;
+        }
+      };
     }
-  };
+  }, [visible, message, type, duration]);
 
-  return (
-    <PaperSnackbar
-      style={[
-        styles.snackbar,
-        { backgroundColor: getBackgroundColor() },
-        style
-      ]}
-      {...props}
-    >
-      {message}
-    </PaperSnackbar>
-  );
+  return null;
 };
-
-const styles = StyleSheet.create({
-  snackbar: {
-    marginBottom: 20,
-  },
-});

@@ -3,7 +3,7 @@ import { View, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import { Text, Searchbar } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 import { Card, CardContent, CardTitle } from '../../components/ui';
-import { AppTheme } from '../../theme/colors';
+import { NordTheme } from '../../theme/nord';
 
 const MOCK_ARTICLES = [
   { id: '1', title: 'Getting Started with React Native', category: 'Tutorial', readTime: '5 min' },
@@ -54,7 +54,7 @@ const KnowledgeArticles = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: AppTheme.colors.background,
+    backgroundColor: NordTheme.colors.background,
   },
   header: {
     padding: 20,
@@ -62,11 +62,11 @@ const styles = StyleSheet.create({
   },
   title: {
     fontWeight: 'bold',
-    color: AppTheme.colors.text,
+    color: NordTheme.colors.text,
     marginBottom: 16,
   },
   searchBar: {
-    backgroundColor: AppTheme.colors.surface,
+    backgroundColor: NordTheme.colors.surface,
   },
   list: {
     flex: 1,
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   readTime: {
-    color: AppTheme.colors.textSecondary,
+    color: NordTheme.colors.textSecondary,
   },
 });
 

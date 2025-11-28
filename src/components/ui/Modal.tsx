@@ -1,7 +1,15 @@
 import React from 'react';
-import { Modal as RNModal, View, StyleSheet, TouchableOpacity } from 'react-native';
-import { Portal, Text } from 'react-native-paper';
-import { AppTheme } from '../../theme/colors';
+import { 
+  Modal as GluestackModal, 
+  ModalBackdrop, 
+  ModalContent, 
+  ModalHeader, 
+  ModalCloseButton, 
+  ModalBody,
+  Heading,
+  Icon,
+  CloseIcon,
+} from '@gluestack-ui/themed';
 
 interface ModalProps {
   visible: boolean;
@@ -17,63 +25,24 @@ export const Modal: React.FC<ModalProps> = ({
   children 
 }) => {
   return (
-    <Portal>
-      <RNModal
-        visible={visible}
-        transparent
-        animationType="fade"
-        onRequestClose={onDismiss}
-      >
-        <TouchableOpacity 
-          style={styles.backdrop} 
-          activeOpacity={1} 
-          onPress={onDismiss}
-        >
-          <TouchableOpacity 
-            activeOpacity={1} 
-            style={styles.modal}
-            onPress={(e) => e.stopPropagation()}
-          >
-            {title && (
-              <View style={styles.header}>
-                <Text variant="titleLarge" style={styles.title}>{title}</Text>
-              </View>
-            )}
-            <View style={styles.content}>
-              {children}
-            </View>
-          </TouchableOpacity>
-        </TouchableOpacity>
-      </RNModal>
-    </Portal>
+    <GluestackModal
+      isOpen={visible}
+      onClose={onDismiss}
+    >
+      <ModalBackdrop />
+      <ModalContent>
+        {title && (
+          <ModalHeader>
+            <Heading style={{ fontSize: 20 }}>{title}</Heading>
+            <ModalCloseButton>
+              <Icon as={CloseIcon} />
+            </ModalCloseButton>
+          </ModalHeader>
+        )}
+        <ModalBody>
+          {children}
+        </ModalBody>
+      </ModalContent>
+    </GluestackModal>
   );
 };
-
-const styles = StyleSheet.create({
-  backdrop: {
-    flex: 1,
-    backgroundColor: 'rgba(46, 52, 64, 0.8)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
-  },
-  modal: {
-    backgroundColor: AppTheme.colors.surface,
-    borderRadius: 12,
-    width: '100%',
-    maxWidth: 400,
-    maxHeight: '80%',
-  },
-  header: {
-    padding: 20,
-    borderBottomWidth: 1,
-    borderBottomColor: AppTheme.colors.border,
-  },
-  title: {
-    color: AppTheme.colors.text,
-    fontWeight: 'bold',
-  },
-  content: {
-    padding: 20,
-  },
-});

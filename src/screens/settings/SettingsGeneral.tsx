@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
 import { Text, List, Switch } from 'react-native-paper';
 import { Card } from '../../components/ui';
-import { AppTheme } from '../../theme/colors';
+import { NordTheme } from '../../theme/nord';
 
 const SettingsGeneral = () => {
   const [notifications, setNotifications] = React.useState(true);
@@ -24,7 +24,7 @@ const SettingsGeneral = () => {
             <Switch
               value={notifications}
               onValueChange={setNotifications}
-              color={AppTheme.colors.primary}
+              color={NordTheme.colors.primary}
             />
           )}
         />
@@ -35,7 +35,7 @@ const SettingsGeneral = () => {
             <Switch
               value={darkMode}
               onValueChange={setDarkMode}
-              color={AppTheme.colors.primary}
+              color={NordTheme.colors.primary}
             />
           )}
         />
@@ -52,14 +52,14 @@ const SettingsGeneral = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: AppTheme.colors.background,
+    backgroundColor: NordTheme.colors.background,
   },
   header: {
     padding: 20,
   },
   title: {
     fontWeight: 'bold',
-    color: AppTheme.colors.text,
+    color: NordTheme.colors.text,
   },
   card: {
     marginHorizontal: 20,

@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
 import { Text, List, Switch } from 'react-native-paper';
 import { Card } from '../../components/ui';
-import { AppTheme } from '../../theme/colors';
+import { NordTheme } from '../../theme/nord';
 
 const SettingsNotifications = () => {
   const [emailNotifications, setEmailNotifications] = React.useState(true);
@@ -25,7 +25,7 @@ const SettingsNotifications = () => {
             <Switch
               value={emailNotifications}
               onValueChange={setEmailNotifications}
-              color={AppTheme.colors.primary}
+              color={NordTheme.colors.primary}
             />
           )}
         />
@@ -36,7 +36,7 @@ const SettingsNotifications = () => {
             <Switch
               value={courseUpdates}
               onValueChange={setCourseUpdates}
-              color={AppTheme.colors.primary}
+              color={NordTheme.colors.primary}
             />
           )}
         />
@@ -47,7 +47,7 @@ const SettingsNotifications = () => {
             <Switch
               value={labReminders}
               onValueChange={setLabReminders}
-              color={AppTheme.colors.primary}
+              color={NordTheme.colors.primary}
             />
           )}
         />
@@ -59,14 +59,14 @@ const SettingsNotifications = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: AppTheme.colors.background,
+    backgroundColor: NordTheme.colors.background,
   },
   header: {
     padding: 20,
   },
   title: {
     fontWeight: 'bold',
-    color: AppTheme.colors.text,
+    color: NordTheme.colors.text,
   },
   card: {
     marginHorizontal: 20,

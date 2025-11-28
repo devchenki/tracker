@@ -3,7 +3,7 @@ import { View, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import { Text, Searchbar, Chip } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 import { Card, CardContent, CardTitle, CardCover } from '../../components/ui';
-import { AppTheme } from '../../theme/colors';
+import { NordTheme } from '../../theme/nord';
 
 const MOCK_COURSES = [
   {
@@ -101,7 +101,7 @@ const CourseList = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: AppTheme.colors.background,
+    backgroundColor: NordTheme.colors.background,
   },
   header: {
     padding: 20,
@@ -109,19 +109,19 @@ const styles = StyleSheet.create({
   },
   title: {
     fontWeight: 'bold',
-    color: AppTheme.colors.text,
+    color: NordTheme.colors.text,
     marginBottom: 16,
   },
   searchBar: {
     marginBottom: 12,
-    backgroundColor: AppTheme.colors.surface,
+    backgroundColor: NordTheme.colors.surface,
   },
   filterContainer: {
     flexDirection: 'row',
     gap: 8,
   },
   chip: {
-    backgroundColor: AppTheme.colors.surface,
+    backgroundColor: NordTheme.colors.surface,
   },
   list: {
     flex: 1,
@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   description: {
-    color: AppTheme.colors.textSecondary,
+    color: NordTheme.colors.textSecondary,
     marginBottom: 12,
   },
   metadata: {
@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
     gap: 16,
   },
   metadataText: {
-    color: AppTheme.colors.textSecondary,
+    color: NordTheme.colors.textSecondary,
   },
 });
 

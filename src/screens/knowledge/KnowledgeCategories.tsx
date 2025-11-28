@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
-import { Text } from 'react-native-paper';
+import { Text } from '../../components/ui';
 import { Card, CardContent, CardTitle } from '../../components/ui';
-import { AppTheme } from '../../theme/colors';
+import { NordTheme } from '../../theme/nord';
 
 const CATEGORIES = [
   { id: '1', name: 'Tutorials', count: 24, icon: '📚' },
@@ -50,14 +50,14 @@ const KnowledgeCategories = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: AppTheme.colors.background,
+    backgroundColor: NordTheme.colors.background,
   },
   header: {
     padding: 20,
   },
   title: {
     fontWeight: 'bold',
-    color: AppTheme.colors.text,
+    color: NordTheme.colors.text,
   },
   list: {
     flex: 1,
@@ -77,11 +77,11 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   categoryName: {
-    color: AppTheme.colors.text,
+    color: NordTheme.colors.text,
     fontWeight: 'bold',
   },
   categoryCount: {
-    color: AppTheme.colors.textSecondary,
+    color: NordTheme.colors.textSecondary,
   },
 });
 

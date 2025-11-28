@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
 import { Text, ProgressBar } from 'react-native-paper';
 import { Card, CardContent, CardTitle } from '../../components/ui';
-import { AppTheme } from '../../theme/colors';
+import { NordTheme } from '../../theme/nord';
 
 const CourseProgress = () => {
   return (
@@ -21,7 +21,7 @@ const CourseProgress = () => {
           </Text>
           <ProgressBar
             progress={0.75}
-            color={AppTheme.colors.primary}
+            color={NordTheme.colors.primary}
             style={styles.progressBar}
           />
         </CardContent>
@@ -33,21 +33,21 @@ const CourseProgress = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: AppTheme.colors.background,
+    backgroundColor: NordTheme.colors.background,
   },
   header: {
     padding: 20,
   },
   title: {
     fontWeight: 'bold',
-    color: AppTheme.colors.text,
+    color: NordTheme.colors.text,
   },
   card: {
     marginHorizontal: 20,
     marginBottom: 16,
   },
   text: {
-    color: AppTheme.colors.text,
+    color: NordTheme.colors.text,
     marginBottom: 12,
   },
   progressBar: {

@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
-import { Text } from 'react-native-paper';
+import { Text } from '../../components/ui';
 import { PieChart } from 'react-native-gifted-charts';
 import { Card, CardContent, CardTitle } from '../../components/ui';
-import { AppTheme, NordColors } from '../../theme/colors';
+import { NordTheme, NordColors } from '../../theme/nord';
 import { ProgressService } from '../../services/ProgressService';
 
 const DashboardInsights = () => {
@@ -102,18 +102,18 @@ const DashboardInsights = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: AppTheme.colors.background,
+    backgroundColor: NordTheme.colors.background,
   },
   header: {
     padding: 20,
   },
   title: {
     fontWeight: 'bold',
-    color: AppTheme.colors.text,
+    color: NordTheme.colors.text,
     marginBottom: 4,
   },
   subtitle: {
-    color: AppTheme.colors.textSecondary,
+    color: NordTheme.colors.textSecondary,
   },
   card: {
     margin: 20,
@@ -125,12 +125,12 @@ const styles = StyleSheet.create({
   },
   centerLabel: {
     textAlign: 'center',
-    color: AppTheme.colors.text,
+    color: NordTheme.colors.text,
     fontWeight: 'bold',
   },
   centerSubLabel: {
     textAlign: 'center',
-    color: AppTheme.colors.textSecondary,
+    color: NordTheme.colors.textSecondary,
   },
   legendContainer: {
     marginTop: 20,
@@ -147,20 +147,20 @@ const styles = StyleSheet.create({
     marginRight: 8,
   },
   legendText: {
-    color: AppTheme.colors.text,
+    color: NordTheme.colors.text,
   },
   metricRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingVertical: 12,
     borderBottomWidth: 1,
-    borderBottomColor: AppTheme.colors.border,
+    borderBottomColor: NordTheme.colors.border,
   },
   metricLabel: {
-    color: AppTheme.colors.text,
+    color: NordTheme.colors.text,
   },
   metricValue: {
-    color: AppTheme.colors.primary,
+    color: NordTheme.colors.primary,
     fontWeight: 'bold',
   },
 });

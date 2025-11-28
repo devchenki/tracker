@@ -1,28 +1,23 @@
 import React from 'react';
-import { StatusBar } from 'react-native';
-import { PaperProvider, MD3LightTheme } from 'react-native-paper';
+import { GluestackUIProvider } from '@gluestack-ui/themed';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { StatusBar } from 'expo-status-bar';
 import { AuthProvider } from './src/contexts/AuthContext';
 import RootNavigator from './src/navigation/RootNavigator';
-
-const theme = {
-  ...MD3LightTheme,
-  colors: {
-    ...MD3LightTheme.colors,
-    primary: '#6200ee',
-    secondary: '#03dac6',
-  },
-};
+import { gluestackConfig } from './src/theme/gluestack.config';
 
 const App = () => {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <PaperProvider theme={theme}>
-        <StatusBar barStyle="dark-content" backgroundColor="#ffffff" />
-        <AuthProvider>
-          <RootNavigator />
-        </AuthProvider>
-      </PaperProvider>
+      <GluestackUIProvider config={gluestackConfig}>
+        <SafeAreaProvider>
+          <StatusBar style="dark" backgroundColor="#ECEFF4" />
+          <AuthProvider>
+            <RootNavigator />
+          </AuthProvider>
+        </SafeAreaProvider>
+      </GluestackUIProvider>
     </GestureHandlerRootView>
   );
 };
