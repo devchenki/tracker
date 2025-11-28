@@ -3,10 +3,15 @@ export interface Cycle {
   name: string;
   startDate: string;
   endDate: string;
-  currentDay: number;
-  totalDays: number;
+  currentDay?: number;
+  totalDays?: number;
+  duration: number;
+  status: 'active' | 'completed' | 'planned';
   progress: number;
   compounds: Compound[];
+  injections: number;
+  completedInjections: number;
+  notes?: string;
 }
 
 export interface Compound {

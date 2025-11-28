@@ -2,6 +2,8 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { CoursesStackParamList } from '../types';
 
+import CoursesScreen from '../screens/courses/CoursesScreen';
+import CourseDetailScreen from '../screens/courses/CourseDetailScreen';
 import CourseList from '../screens/courses/CourseList';
 import CourseDetail from '../screens/courses/CourseDetail';
 import CourseProgress from '../screens/courses/CourseProgress';
@@ -13,16 +15,19 @@ const CoursesNavigator = () => {
   return (
     <Stack.Navigator
       screenOptions={{
-        headerShown: true,
-        headerStyle: {
-          backgroundColor: '#81A1C1',
-        },
-        headerTintColor: '#FFFFFF',
-        headerTitleStyle: {
-          fontWeight: 'bold',
-        },
+        headerShown: false,
       }}
     >
+      <Stack.Screen
+        name="CoursesScreen"
+        component={CoursesScreen}
+        options={{ title: 'Циклы' }}
+      />
+      <Stack.Screen
+        name="CourseDetailScreen"
+        component={CourseDetailScreen}
+        options={{ title: 'Детали цикла' }}
+      />
       <Stack.Screen
         name="CourseList"
         component={CourseList}
