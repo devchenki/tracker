@@ -29,10 +29,10 @@ const CourseModules = () => {
           <CardContent>
             <Text
               variant="bodyMedium"
-              style={[
-                styles.status,
-                { color: module.completed ? NordTheme.colors.success : NordTheme.colors.textSecondary },
-              ]}
+              style={{
+                ...styles.status,
+                color: module.completed ? NordTheme.colors.success : NordTheme.colors.textSecondary,
+              }}
             >
               {module.completed ? '✓ Completed' : 'In Progress'}
             </Text>

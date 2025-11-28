@@ -2,6 +2,7 @@ import { createConfig } from '@gluestack-ui/themed';
 import { NordColors } from './nord';
 
 export const gluestackConfig = createConfig({
+  aliases: {},
   tokens: {
     colors: {
       primary0: NordColors.frost.nord10,

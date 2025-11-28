@@ -8,7 +8,18 @@ jest.mock('react-native-reanimated', () => {
   return Reanimated;
 });
 
-jest.mock('react-native/Libraries/Animated/NativeAnimatedHelper');
+jest.mock('react-native-gesture-handler', () => {
+  const View = require('react-native/Libraries/Components/View/View');
+  return {
+    GestureHandlerRootView: View,
+    TouchableOpacity: View,
+    TouchableWithoutFeedback: View,
+    State: {},
+    PanGestureHandler: View,
+    BaseButton: View,
+    Directions: {},
+  };
+});
 
 jest.mock('react-native-vector-icons/MaterialCommunityIcons', () => 'Icon');
 
