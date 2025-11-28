@@ -1,11 +1,12 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { SettingsStackParamList } from '../types';
+import { NordColors } from '../theme/nord';
 
-import SettingsGeneral from '../screens/settings/SettingsGeneral';
-import SettingsSecurity from '../screens/settings/SettingsSecurity';
-import SettingsNotifications from '../screens/settings/SettingsNotifications';
-import SettingsProfile from '../screens/settings/SettingsProfile';
+import SettingsScreen from '../screens/settings/SettingsScreen';
+import ProfileScreen from '../screens/settings/ProfileScreen';
+import EditProfileScreen from '../screens/settings/EditProfileScreen';
+import AllAchievementsScreen from '../screens/settings/AllAchievementsScreen';
 
 const Stack = createStackNavigator<SettingsStackParamList>();
 
@@ -15,33 +16,33 @@ const SettingsNavigator = () => {
       screenOptions={{
         headerShown: true,
         headerStyle: {
-          backgroundColor: '#81A1C1',
+          backgroundColor: NordColors.frost.nord9,
         },
-        headerTintColor: '#FFFFFF',
+        headerTintColor: NordColors.snowStorm.nord6,
         headerTitleStyle: {
           fontWeight: 'bold',
         },
       }}
     >
       <Stack.Screen
-        name="SettingsProfile"
-        component={SettingsProfile}
-        options={{ title: 'Profile' }}
+        name="Settings"
+        component={SettingsScreen}
+        options={{ title: 'Настройки' }}
       />
       <Stack.Screen
-        name="SettingsGeneral"
-        component={SettingsGeneral}
-        options={{ title: 'General' }}
+        name="Profile"
+        component={ProfileScreen}
+        options={{ title: 'Профиль' }}
       />
       <Stack.Screen
-        name="SettingsSecurity"
-        component={SettingsSecurity}
-        options={{ title: 'Security' }}
+        name="EditProfile"
+        component={EditProfileScreen}
+        options={{ title: 'Редактировать профиль' }}
       />
       <Stack.Screen
-        name="SettingsNotifications"
-        component={SettingsNotifications}
-        options={{ title: 'Notifications' }}
+        name="AllAchievements"
+        component={AllAchievementsScreen}
+        options={{ title: 'Достижения' }}
       />
     </Stack.Navigator>
   );

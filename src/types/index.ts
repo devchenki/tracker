@@ -2,6 +2,10 @@ export interface User {
   id: string;
   email: string;
   name: string;
+  age?: number;
+  weight?: number;
+  height?: number;
+  avatar?: string;
 }
 
 export interface AuthState {
@@ -73,8 +77,12 @@ export type LabsStackParamList = {
 };
 
 export type SettingsStackParamList = {
+  Settings: undefined;
   SettingsGeneral: undefined;
   SettingsSecurity: undefined;
   SettingsNotifications: undefined;
   SettingsProfile: undefined;
+  Profile: undefined;
+  EditProfile: undefined;
+  AllAchievements: undefined;
 };
