@@ -19,9 +19,9 @@ const CardComponent: React.FC<CardProps> = ({
     <Box
       style={[
         styles.card,
-        elevation && { elevation },
+        elevation ? { elevation } : undefined,
         style
-      ]}
+      ] as any}
       {...props}
     >
       {children}

@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import { Text, Searchbar, Chip } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
-import { Card, CardContent, CardTitle, CardCover } from '../../components/ui';
+import { Card, CardContent, CardTitle } from '../../components/ui';
 import { NordTheme } from '../../theme/nord';
 
 const MOCK_COURSES = [
@@ -70,7 +70,7 @@ const CourseList = () => {
         {MOCK_COURSES.map((course) => (
           <TouchableOpacity
             key={course.id}
-            onPress={() => navigation.navigate('CourseDetail' as never, { courseId: course.id } as never)}
+            onPress={() => (navigation as any).navigate('CourseDetail', { courseId: course.id })}
           >
             <Card style={styles.card}>
               <CardTitle

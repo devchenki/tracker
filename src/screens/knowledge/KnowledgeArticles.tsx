@@ -34,7 +34,7 @@ const KnowledgeArticles = () => {
         {MOCK_ARTICLES.map((article) => (
           <TouchableOpacity
             key={article.id}
-            onPress={() => navigation.navigate('KnowledgeDetail' as never, { articleId: article.id } as never)}
+            onPress={() => (navigation as any).navigate('KnowledgeDetail', { articleId: article.id })}
           >
             <Card style={styles.card}>
               <CardTitle title={article.title} subtitle={article.category} />

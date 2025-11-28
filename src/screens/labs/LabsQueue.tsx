@@ -35,7 +35,7 @@ const LabsQueue = () => {
               </Text>
               <Button
                 variant={lab.status === 'in-progress' ? 'primary' : 'outline'}
-                onPress={() => navigation.navigate('LabsDetail' as never, { labId: lab.id } as never)}
+                onPress={() => (navigation as any).navigate('LabsDetail', { labId: lab.id })}
                 style={styles.button}
               >
                 {lab.status === 'in-progress' ? 'Continue' : 'Start Lab'}

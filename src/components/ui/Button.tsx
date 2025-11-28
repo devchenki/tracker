@@ -38,11 +38,9 @@ export const Button: React.FC<ButtonProps> = ({
 
   return (
     <GluestackButton
-      variant={getVariant()}
-      action={getAction()}
       onPress={onPress}
       isDisabled={disabled || loading}
-      style={[fullWidth && styles.fullWidth, style]}
+      style={[fullWidth && styles.fullWidth, style] as any}
       {...props}
     >
       <ButtonText style={textStyle}>

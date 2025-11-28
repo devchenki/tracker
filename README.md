@@ -19,12 +19,13 @@ A React Native Expo application with authentication, dashboard, and comprehensiv
 
 ## Tech Stack
 
-- **Expo SDK 54** (managed workflow)
-- **React Native 0.73**
-- **TypeScript**
+- **Expo SDK 53** (managed workflow)
+- **React Native 0.76**
+- **React 18.3**
+- **TypeScript 5.x**
 - **Gluestack UI** (UI component library)
 - **React Native Reanimated** (animations)
-- **React Navigation** (navigation)
+- **React Navigation 6.x** (navigation)
 - **AsyncStorage** (session persistence)
 - **Expo Status Bar** (status bar styling)
 - **Expo Splash Screen** (splash screen management)
@@ -88,15 +89,29 @@ Theme configuration is located in:
 └── app.json                 # Expo configuration
 ```
 
+## Version History
+
+### Current: Expo SDK 53
+- **Expo SDK**: 53.0.0
+- **React Native**: 0.76.5
+- **React**: 18.3.1
+- **TypeScript**: 5.3.3
+- Updated all dependencies for SDK 53 compatibility
+- Updated babel-preset-expo to 12.0.1
+- Updated React Native Reanimated to 3.16.x
+- Updated navigation libraries and expo modules
+
 ## Installation
 
 ```bash
 # Install dependencies
-npm install
+npm install --legacy-peer-deps
 
 # For iOS, install pods (if using bare workflow)
 cd ios && pod install && cd ..
 ```
+
+**Note**: Use `--legacy-peer-deps` flag due to peer dependency conflicts with some UI libraries.
 
 ## Running the App
 

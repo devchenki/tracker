@@ -49,7 +49,7 @@ const InputComponent: React.FC<InputProps> = ({
         autoCapitalize={autoCapitalize}
         {...props}
       />
-      {right && <InputSlot pr="$3">{right}</InputSlot>}
+      {right && <InputSlot style={{ paddingRight: 12 } as any}>{right}</InputSlot>}
     </GluestackInput>
   );
 };

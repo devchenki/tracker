@@ -2,8 +2,8 @@ import React from 'react';
 import { render, fireEvent, waitFor } from '@testing-library/react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { PaperProvider } from 'react-native-paper';
-import SignInScreen from '../src/screens/SignInScreen';
-import SignUpScreen from '../src/screens/SignUpScreen';
+import SignInScreen from '../src/screens/auth/SignInScreen';
+import SignUpScreen from '../src/screens/auth/SignUpScreen';
 import { AuthProvider } from '../src/contexts/AuthContext';
 
 const mockNavigate = jest.fn();
