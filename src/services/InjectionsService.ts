@@ -1,4 +1,7 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Injection } from '../types/dashboard';
+
+const STORAGE_KEY = '@trackersteroid_injections';
 
 class InjectionsServiceClass {
   private mockInjections: Injection[] = [
@@ -24,6 +27,16 @@ class InjectionsServiceClass {
     },
   ];
 
+  async getInjections(): Promise<Injection[]> {
+    try {
+      const data = await AsyncStorage.getItem(STORAGE_KEY);
+      return data ? JSON.parse(data) : [];
+    } catch (error) {
+      console.error('Error getting injections:', error);
+      return [];
+    }
+  }
+
   async getNextInjection(): Promise<Injection | null> {
     return new Promise((resolve) => {
       setTimeout(() => {
@@ -45,22 +58,36 @@ class InjectionsServiceClass {
     });
   }
 
+  async getInjectionsByDate(date: string): Promise<Injection[]> {
+    const injections = await this.getInjections();
+    return injections.filter(inj => inj.scheduledDate === date);
+  }
+
+  async getInjectionsByCompound(compound: string): Promise<Injection[]> {
+    const injections = await this.getInjections();
+    return injections.filter(inj => inj.compound.toLowerCase().includes(compound.toLowerCase()));
+  }
+
   async logInjection(injection: Partial<Injection>): Promise<Injection> {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        const newInjection: Injection = {
-          id: Date.now().toString(),
-          compound: injection.compound || '',
-          dosage: injection.dosage || 0,
-          unit: injection.unit || 'mg',
-          scheduledDate: injection.scheduledDate || new Date().toISOString().split('T')[0],
-          scheduledTime: injection.scheduledTime || '12:00',
-          site: injection.site || '',
-          status: 'completed',
-        };
-        resolve(newInjection);
-      }, 300);
-    });
+    try {
+      const injections = await this.getInjections();
+      const newInjection: Injection = {
+        id: Date.now().toString(),
+        compound: injection.compound || '',
+        dosage: injection.dosage || 0,
+        unit: injection.unit || 'mg',
+        scheduledDate: injection.scheduledDate || new Date().toISOString().split('T')[0],
+        scheduledTime: injection.scheduledTime || '12:00',
+        site: injection.site || '',
+        status: 'completed',
+      };
+      injections.push(newInjection);
+      await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(injections));
+      return newInjection;
+    } catch (error) {
+      console.error('Error logging injection:', error);
+      throw error;
+    }
   }
 }
 

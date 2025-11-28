@@ -33,6 +33,12 @@ export type RootStackParamList = {
   SignIn: undefined;
   SignUp: undefined;
   MainTabs: undefined;
+  LogInjectionScreen: undefined;
+  LogTabletScreen: undefined;
+  LogNoteScreen: undefined;
+  ProfileScreen: undefined;
+  EditProfileScreen: undefined;
+  AllAchievementsScreen: undefined;
 };
 
 export type MainTabParamList = {
@@ -63,6 +69,7 @@ export type KnowledgeStackParamList = {
   KnowledgeDetail: { articleId: string };
   KnowledgeCategories: undefined;
   KnowledgeSearch: undefined;
+  KnowledgeBaseScreen: undefined;
 };
 
 export type LabsStackParamList = {
@@ -77,4 +84,8 @@ export type SettingsStackParamList = {
   SettingsSecurity: undefined;
   SettingsNotifications: undefined;
   SettingsProfile: undefined;
+  SettingsScreen: undefined;
+  ProfileScreen: undefined;
+  EditProfileScreen: undefined;
+  AllAchievementsScreen: undefined;
 };

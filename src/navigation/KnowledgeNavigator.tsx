@@ -6,6 +6,7 @@ import KnowledgeArticles from '../screens/knowledge/KnowledgeArticles';
 import KnowledgeDetail from '../screens/knowledge/KnowledgeDetail';
 import KnowledgeCategories from '../screens/knowledge/KnowledgeCategories';
 import KnowledgeSearch from '../screens/knowledge/KnowledgeSearch';
+import KnowledgeBaseScreen from '../screens/knowledge/KnowledgeBaseScreen';
 
 const Stack = createStackNavigator<KnowledgeStackParamList>();
 
@@ -13,16 +14,14 @@ const KnowledgeNavigator = () => {
   return (
     <Stack.Navigator
       screenOptions={{
-        headerShown: true,
-        headerStyle: {
-          backgroundColor: '#81A1C1',
-        },
-        headerTintColor: '#FFFFFF',
-        headerTitleStyle: {
-          fontWeight: 'bold',
-        },
+        headerShown: false,
       }}
     >
+      <Stack.Screen
+        name="KnowledgeBaseScreen"
+        component={KnowledgeBaseScreen}
+        options={{ title: 'Knowledge Base' }}
+      />
       <Stack.Screen
         name="KnowledgeArticles"
         component={KnowledgeArticles}
