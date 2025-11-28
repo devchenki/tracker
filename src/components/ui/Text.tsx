@@ -7,12 +7,14 @@ interface TextProps {
   children: React.ReactNode;
   variant?: 'headlineLarge' | 'headlineMedium' | 'headlineSmall' | 'titleLarge' | 'titleMedium' | 'titleSmall' | 'bodyLarge' | 'bodyMedium' | 'bodySmall' | 'labelLarge' | 'labelMedium' | 'labelSmall' | 'displayLarge' | 'displayMedium' | 'displaySmall';
   style?: TextStyle;
+  numberOfLines?: number;
 }
 
 export const Text: React.FC<TextProps> = ({ 
   children,
   variant,
   style,
+  numberOfLines,
   ...props 
 }) => {
   const isHeadline = variant?.includes('headline') || variant?.includes('display');
@@ -60,14 +62,14 @@ export const Text: React.FC<TextProps> = ({
 
   if (isHeadline || isTitle) {
     return (
-      <Heading style={[textStyle, style]} {...props}>
+      <Heading style={[textStyle, style]} numberOfLines={numberOfLines} {...props}>
         {children}
       </Heading>
     );
   }
 
   return (
-    <GluestackText style={[textStyle, style]} {...props}>
+    <GluestackText style={[textStyle, style]} numberOfLines={numberOfLines} {...props}>
       {children}
     </GluestackText>
   );

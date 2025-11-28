@@ -37,8 +37,8 @@ const CardTitle: React.FC<{ title: string; subtitle?: string }> = ({ title, subt
   </View>
 );
 
-const CardContent: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <Box style={styles.content}>{children}</Box>
+const CardContent: React.FC<{ children: React.ReactNode; style?: ViewStyle }> = ({ children, style }) => (
+  <Box style={[styles.content, style] as any}>{children}</Box>
 );
 
 const CardActions: React.FC<{ children: React.ReactNode }> = ({ children }) => (

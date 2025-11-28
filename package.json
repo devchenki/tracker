@@ -21,6 +21,7 @@
     "@react-navigation/native": "^6.1.18",
     "@react-navigation/stack": "^6.4.1",
     "expo": "^53.0.0",
+    "expo-image-picker": "^17.0.8",
     "expo-local-authentication": "~15.0.1",
     "expo-splash-screen": "~0.29.16",
     "expo-status-bar": "~2.0.0",
@@ -72,7 +73,7 @@
       "./jest.setup.js"
     ],
     "transformIgnorePatterns": [
-      "node_modules/(?!(react-native|@react-native|react-native-safe-area-context|@react-navigation|react-native-reanimated|react-native-gesture-handler|react-native-gifted-charts|react-native-linear-gradient|react-native-svg|expo|expo-status-bar|expo-splash-screen|expo-local-authentication|@gluestack-ui|@gluestack-style|@legendapp|@babel)/)"
+      "node_modules/(?!(react-native|@react-native|react-native-safe-area-context|@react-navigation|react-native-reanimated|react-native-gesture-handler|react-native-gifted-charts|react-native-linear-gradient|react-native-svg|expo|expo-status-bar|expo-splash-screen|expo-local-authentication|expo-image-picker|@gluestack-ui|@gluestack-style|@legendapp|@babel)/)"
     ]
   }
 }
