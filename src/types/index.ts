@@ -51,7 +51,9 @@ export type DashboardStackParamList = {
 
 export type CoursesStackParamList = {
   CourseList: undefined;
+  CoursesScreen: undefined;
   CourseDetail: { courseId: string };
+  CourseDetailScreen: { courseId: string };
   CourseProgress: { courseId: string };
   CourseModules: { courseId: string };
 };
