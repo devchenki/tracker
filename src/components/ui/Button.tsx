@@ -1,7 +1,6 @@
 import React from 'react';
 import { Button as GluestackButton, ButtonText } from '@gluestack-ui/themed';
 import { StyleSheet, ViewStyle, TextStyle } from 'react-native';
-import { NordTheme } from '../../theme/nord';
 
 interface ButtonProps {
   variant?: 'primary' | 'secondary' | 'outline' | 'text';
@@ -15,7 +14,6 @@ interface ButtonProps {
 }
 
 export const Button: React.FC<ButtonProps> = ({ 
-  variant = 'primary', 
   fullWidth = false,
   children,
   onPress,
@@ -25,17 +23,6 @@ export const Button: React.FC<ButtonProps> = ({
   textStyle,
   ...props 
 }) => {
-  const getVariant = () => {
-    if (variant === 'outline') return 'outline';
-    if (variant === 'text') return 'link';
-    return 'solid';
-  };
-
-  const getAction = () => {
-    if (variant === 'secondary') return 'secondary';
-    return 'primary';
-  };
-
   return (
     <GluestackButton
       onPress={onPress}
