@@ -1,7 +1,8 @@
 import React from 'react';
-import { Box, Heading, Text, VStack, HStack } from '@gluestack-ui/themed';
+import { Box } from '@gluestack-ui/themed';
 import { StyleSheet, ViewStyle, View } from 'react-native';
 import { NordTheme } from '../../theme/nord';
+import { Text } from './Text';
 
 interface CardProps {
   children: React.ReactNode;
@@ -31,7 +32,7 @@ const CardComponent: React.FC<CardProps> = ({
 
 const CardTitle: React.FC<{ title: string; subtitle?: string }> = ({ title, subtitle }) => (
   <View style={styles.titleContainer}>
-    <Heading style={styles.title}>{title}</Heading>
+    <Text style={styles.title}>{title}</Text>
     {subtitle && <Text style={styles.subtitle}>{subtitle}</Text>}
   </View>
 );

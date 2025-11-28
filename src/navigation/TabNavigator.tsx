@@ -2,7 +2,7 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { MainTabParamList } from '../types';
-import { AppTheme } from '../theme/colors';
+import { NordTheme } from '../theme/nord';
 
 import DashboardNavigator from './DashboardNavigator';
 import CoursesNavigator from './CoursesNavigator';
@@ -17,11 +17,11 @@ const TabNavigator = () => {
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: AppTheme.colors.primary,
-        tabBarInactiveTintColor: AppTheme.colors.textSecondary,
+        tabBarActiveTintColor: NordTheme.colors.primary,
+        tabBarInactiveTintColor: NordTheme.colors.textSecondary,
         tabBarStyle: {
-          backgroundColor: AppTheme.colors.surface,
-          borderTopColor: AppTheme.colors.border,
+          backgroundColor: NordTheme.colors.surface,
+          borderTopColor: NordTheme.colors.border,
           paddingBottom: 5,
           paddingTop: 5,
           height: 60,
