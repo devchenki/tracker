@@ -1,5 +1,3 @@
-import '@testing-library/react-native/extend-expect';
-
 jest.mock('@react-native-async-storage/async-storage', () =>
   require('@react-native-async-storage/async-storage/jest/async-storage-mock')
 );
@@ -11,3 +9,13 @@ jest.mock('react-native-reanimated', () => {
 });
 
 jest.mock('react-native/Libraries/Animated/NativeAnimatedHelper');
+
+jest.mock('react-native-vector-icons/MaterialCommunityIcons', () => 'Icon');
+
+jest.mock('react-native-gifted-charts', () => ({
+  BarChart: 'BarChart',
+  PieChart: 'PieChart',
+  LineChart: 'LineChart',
+}));
+
+jest.mock('react-native-linear-gradient', () => 'LinearGradient');
