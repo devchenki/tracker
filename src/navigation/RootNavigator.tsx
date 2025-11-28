@@ -4,10 +4,10 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { useAuth } from '../contexts/AuthContext';
 import { RootStackParamList } from '../types';
 
-import SplashScreen from '../screens/SplashScreen';
-import SignInScreen from '../screens/SignInScreen';
-import SignUpScreen from '../screens/SignUpScreen';
-import DashboardScreen from '../screens/DashboardScreen';
+import SplashScreen from '../screens/auth/SplashScreen';
+import SignInScreen from '../screens/auth/SignInScreen';
+import SignUpScreen from '../screens/auth/SignUpScreen';
+import TabNavigator from './TabNavigator';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -32,7 +32,7 @@ const RootNavigator = () => {
             <Stack.Screen name="SignUp" component={SignUpScreen} />
           </>
         ) : (
-          <Stack.Screen name="Dashboard" component={DashboardScreen} />
+          <Stack.Screen name="MainTabs" component={TabNavigator} />
         )}
       </Stack.Navigator>
     </NavigationContainer>

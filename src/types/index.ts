@@ -32,10 +32,47 @@ export type RootStackParamList = {
   Splash: undefined;
   SignIn: undefined;
   SignUp: undefined;
-  Dashboard: undefined;
+  MainTabs: undefined;
 };
 
-export type DashboardTabParamList = {
-  Home: undefined;
-  Profile: undefined;
+export type MainTabParamList = {
+  DashboardTab: undefined;
+  CoursesTab: undefined;
+  KnowledgeTab: undefined;
+  LabsTab: undefined;
+  SettingsTab: undefined;
+};
+
+export type DashboardStackParamList = {
+  DashboardOverview: undefined;
+  DashboardInsights: undefined;
+  DashboardProgress: undefined;
+};
+
+export type CoursesStackParamList = {
+  CourseList: undefined;
+  CourseDetail: { courseId: string };
+  CourseProgress: { courseId: string };
+  CourseModules: { courseId: string };
+};
+
+export type KnowledgeStackParamList = {
+  KnowledgeArticles: undefined;
+  KnowledgeDetail: { articleId: string };
+  KnowledgeCategories: undefined;
+  KnowledgeSearch: undefined;
+};
+
+export type LabsStackParamList = {
+  LabsQueue: undefined;
+  LabsDetail: { labId: string };
+  LabsActive: undefined;
+  LabsHistory: undefined;
+};
+
+export type SettingsStackParamList = {
+  SettingsGeneral: undefined;
+  SettingsSecurity: undefined;
+  SettingsNotifications: undefined;
+  SettingsProfile: undefined;
 };

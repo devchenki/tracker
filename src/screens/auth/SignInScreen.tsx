@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
-import { TextInput, Button, Text, Snackbar } from 'react-native-paper';
+import { Text } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { useAuth } from '../contexts/AuthContext';
-import { RootStackParamList } from '../types';
+import { useAuth } from '../../contexts/AuthContext';
+import { RootStackParamList } from '../../types';
+import { Button, Input, Snackbar } from '../../components/ui';
+import { AppTheme } from '../../theme/colors';
 
 type SignInScreenNavigationProp = StackNavigationProp<RootStackParamList, 'SignIn'>;
 
@@ -85,7 +87,7 @@ const SignInScreen = () => {
             Welcome back! Please sign in to continue.
           </Text>
 
-          <TextInput
+          <Input
             label="Email"
             value={email}
             onChangeText={(text) => {
@@ -93,7 +95,6 @@ const SignInScreen = () => {
               if (emailError) validateEmail(text);
             }}
             onBlur={() => validateEmail(email)}
-            mode="outlined"
             style={styles.input}
             keyboardType="email-address"
             autoCapitalize="none"
@@ -104,7 +105,7 @@ const SignInScreen = () => {
             <Text style={styles.errorText}>{emailError}</Text>
           ) : null}
 
-          <TextInput
+          <Input
             label="Password"
             value={password}
             onChangeText={(text) => {
@@ -112,11 +113,10 @@ const SignInScreen = () => {
               if (passwordError) validatePassword(text);
             }}
             onBlur={() => validatePassword(password)}
-            mode="outlined"
             style={styles.input}
             secureTextEntry={!showPassword}
             right={
-              <TextInput.Icon
+              <Input.Icon
                 icon={showPassword ? 'eye-off' : 'eye'}
                 onPress={() => setShowPassword(!showPassword)}
               />
@@ -129,17 +129,18 @@ const SignInScreen = () => {
           ) : null}
 
           <Button
-            mode="contained"
+            variant="primary"
             onPress={handleSignIn}
             style={styles.button}
             loading={loading}
             disabled={loading}
+            fullWidth
           >
             Sign In
           </Button>
 
           <Button
-            mode="text"
+            variant="text"
             onPress={() => navigation.navigate('SignUp')}
             style={styles.linkButton}
             disabled={loading}
@@ -153,13 +154,13 @@ const SignInScreen = () => {
         visible={!!error}
         onDismiss={() => setError('')}
         duration={3000}
+        message={error}
+        type="error"
         action={{
           label: 'Dismiss',
           onPress: () => setError(''),
         }}
-      >
-        {error}
-      </Snackbar>
+      />
     </KeyboardAvoidingView>
   );
 };
@@ -167,7 +168,7 @@ const SignInScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: AppTheme.colors.background,
   },
   scrollContent: {
     flexGrow: 1,
@@ -179,16 +180,17 @@ const styles = StyleSheet.create({
   title: {
     marginBottom: 8,
     fontWeight: 'bold',
+    color: AppTheme.colors.text,
   },
   subtitle: {
     marginBottom: 32,
-    color: '#666',
+    color: AppTheme.colors.textSecondary,
   },
   input: {
     marginBottom: 8,
   },
   errorText: {
-    color: '#B00020',
+    color: AppTheme.colors.error,
     fontSize: 12,
     marginBottom: 8,
     marginLeft: 12,
