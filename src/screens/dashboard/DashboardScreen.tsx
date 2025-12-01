@@ -387,21 +387,21 @@ const DashboardScreen = ({ navigation }: any) => {
         <View style={styles.quickActionsGrid}>
           <TouchableOpacity 
             style={styles.quickActionButton}
-            onPress={() => {}}
+            onPress={() => navigation.navigate('LogInjectionScreen')}
           >
             <Icon name="needle" size={32} color={NordColors.frost.nord9} />
             <Text style={styles.quickActionText}>Инъекция</Text>
           </TouchableOpacity>
           <TouchableOpacity 
             style={styles.quickActionButton}
-            onPress={() => {}}
+            onPress={() => navigation.navigate('LogTabletScreen')}
           >
-            <Icon name="flask" size={32} color={NordColors.frost.nord9} />
-            <Text style={styles.quickActionText}>Анализ</Text>
+            <Icon name="pill" size={32} color={NordColors.frost.nord9} />
+            <Text style={styles.quickActionText}>Таблетка</Text>
           </TouchableOpacity>
           <TouchableOpacity 
             style={styles.quickActionButton}
-            onPress={() => {}}
+            onPress={() => navigation.navigate('LogNoteScreen')}
           >
             <Icon name="notebook" size={32} color={NordColors.frost.nord9} />
             <Text style={styles.quickActionText}>Заметка</Text>
@@ -410,8 +410,8 @@ const DashboardScreen = ({ navigation }: any) => {
             style={styles.quickActionButton}
             onPress={() => {}}
           >
-            <Icon name="scale-bathroom" size={32} color={NordColors.frost.nord9} />
-            <Text style={styles.quickActionText}>Измерение</Text>
+            <Icon name="flask" size={32} color={NordColors.frost.nord9} />
+            <Text style={styles.quickActionText}>Анализ</Text>
           </TouchableOpacity>
         </View>
       </View>
